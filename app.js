@@ -1,8 +1,10 @@
+const express = require('express');
+
+const routerMain = require('./src/routes/main');
+
 const path = require("path");
 
-const morgan = require("morgan"); //morganzuelo
-
-const express = require('express');
+const morgan = require("morgan"); 
 
 const app = express();
 
@@ -13,6 +15,8 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 app.use(express.static("public")); 
+
+app.use(routerMain); 
 
 app.set("views", "views"); 
 
