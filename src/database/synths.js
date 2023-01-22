@@ -1,80 +1,80 @@
 const synths = [
 
     {
-        id: 01,
+        id: 1,
 
-        type : "Monophonic Synth",
+        type: "Monophonic Synth",
 
-        brand : "Moog",
+        brand: "Moog",
 
-        model : "Mother-32",
+        model: "Mother-32",
 
-        price : 699
+        price: 699
 
     },
 
     {
-        id: 02,
+        id: 2,
 
-        type : "Monophonic Synth",
+        type: "Monophonic Synth",
 
-        brand : "Moog",
+        brand: "Moog",
 
-        model : "DFAM",
+        model: "DFAM",
 
-        price : 699
+        price: 699
 
-       
+
     },
 
     {
-        id: 03,
+        id: 3,
 
-        type : "Paraphonic Synth",
+        type: "Paraphonic Synth",
 
-        brand : "Moog",
+        brand: "Moog",
 
-        model : "Subharmonicon",
+        model: "Subharmonicon",
 
-        price : 699
+        price: 699
 
-        
+
     },
 
     {
-        id: 04,
+        id: 4,
 
-        type : "Monophonic Synth",
+        type: "Monophonic Synth",
 
-        brand : "Moog",
+        brand: "Moog",
 
-        model : "Grandmother",
+        model: "Grandmother",
 
-        price : 1249
+        price: 1249
     },
 
     {
-        id: 05,
+        id: 5,
 
-        type : "Paraphonic Synth",
+        type: "Paraphonic Synth",
 
-        brand : "Moog",
+        brand: "Moog",
 
-        model : "Matriarch",
+        model: "Matriarch",
 
-        price : 2199
+        price: 2199
     },
 
     {
-        id: 06,
+        id: 6,
 
-        type : "Paraphonic Synth",
+        type: "Paraphonic Synth",
 
-        brand : "Moog",
+        brand: "Moog",
 
-        model : "Sub 37",
+        model: "Sub 37",
 
-        price : 1899
+        price: 1899
     },
 
 
