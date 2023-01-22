@@ -2,6 +2,8 @@ const express = require('express');
 
 const routerMain = require('./src/routes/main');
 
+const routerSynth = require('./src/routes/synthRoute');
+
 const path = require("path");
 
 const morgan = require("morgan"); 
@@ -17,6 +19,8 @@ app.use(express.json());
 app.use(express.static("public")); 
 
 app.use(routerMain); 
+
+app.use(routerSynth);
 
 app.set("views", "views"); 
 
