@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <!-- El head puede ser un partial. -->
+    <link rel="stylesheet" href="/styles/styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+</head>
+<body>
+
+    <%- include('partials/header.ejs') %>
+
+    <h2 class="subtitles">Information</h2>
+
+    <div class="card">
+
+        <img class="icons" src="<%= synth.img %>" alt="">
+
+        <p class="description">
+            Model: <%= synth.model %>
+        </p>
+
+        <p class="description">
+            Price: <%= synth.price %>
+        </p>
+
+    </div>
+
+</body>
+</html>

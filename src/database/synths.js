@@ -9,7 +9,9 @@ const synths = [
 
         model: "Mother-32",
 
-        price: 699
+        price: 699,
+
+        img: 'https://styles.redditmedia.com/t5_3a9l7/styles/communityIcon_3eaeqzl4bo551.png'
 
     },
 
@@ -22,7 +24,9 @@ const synths = [
 
         model: "DFAM",
 
-        price: 699
+        price: 699,
+
+        img: 'https://styles.redditmedia.com/t5_3b3i9/styles/communityIcon_rxnb7rmj22h51.png'
 
 
     },
@@ -36,7 +40,9 @@ const synths = [
 
         model: "Subharmonicon",
 
-        price: 699
+        price: 699,
+
+        img: 'https://styles.redditmedia.com/t5_2npl57/styles/communityIcon_rrwh8r3l3gy41.png'
 
 
     },
@@ -50,7 +56,9 @@ const synths = [
 
         model: "Grandmother",
 
-        price: 1249
+        price: 1249,
+
+        img: 'https://m.media-amazon.com/images/I/81D2Wwy86tL._CR559,0,962,962_UX256.jpg'
     },
 
     {
@@ -62,7 +70,9 @@ const synths = [
 
         model: "Matriarch",
 
-        price: 2199
+        price: 2199,
+
+        img: 'https://styles.redditmedia.com/t5_39qnmb/styles/communityIcon_3azjr3nkgot51.png'
     },
 
     {
@@ -74,7 +84,9 @@ const synths = [
 
         model: "Sub 37",
 
-        price: 1899
+        price: 1899,
+
+        img: 'https://m.media-amazon.com/images/I/81eSW+xQpsL._CR0,204,1224,1224_UX256.jpg'
     },
 
 

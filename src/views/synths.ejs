@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syhnts List with EJS</title>
+</head>
+
+<body>
+
+    <%- include('partials/header.ejs') %>
+
+    <h2 class="subtitles">My Moog Synths</h2>
+
+    <ul>
+
+        <% for (let i=0; i< allSynths.length; i++) {%> <!-- EJS -->
+
+            <li>
+                <article>
+
+                    <a href="/synth/<%= allSynths[i].id %>">
+                        <img class="icons" src="<%= allSynths[i].img %>" alt="">
+                    </a>
+                   
+                    <p class="description">
+                        
+                        Model: "<%= allSynths[i].model %>
+                    </p>
+                </article>
+            </li>
+
+            <%}%>
+
+    </ul>
+
+</body>
+
+</html>
