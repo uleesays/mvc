@@ -6,7 +6,7 @@ const renderAllSynths = (req, res) => {
 
 const renderSynthId = (req, res) => {
 
-    const { id } = req.params; 
+    const { id } = req.params;
 
     const synth = synths.find(elem => elem.id == id);
 
@@ -16,10 +16,23 @@ const renderSynthId = (req, res) => {
         res.send("Not found")
     }
 
+}
+
+const renderSynthModel = (req, res) => {
+
+    const { model } = req.params;
+    const synth = synths.filter(elem => elem.model.includes(model));
+    if (synth.length) {
+        res.send(synth);
+    } else {
+        res.send("Not Found");
+    }
+
 
 }
 
 module.exports = {
     renderAllSynths,
-    renderSynthId
+    renderSynthId,
+    renderSynthModel
 }
