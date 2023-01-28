@@ -1,31 +1,21 @@
 const express = require('express');
-
 const routerMain = require('./src/routes/main');
-
 const routerSynth = require('./src/routes/synthRoute');
-
-/* const path = require("path"); */
-
+const methodOverride = require('method-override');
 const morgan = require("morgan"); 
-
 const app = express();
-
-app.use(express.urlencoded({ extended: false })); 
-
-app.use(express.json());
-
-app.use(morgan("dev")); 
-
-app.use(express.static("public")); 
-
-app.use(routerMain); 
-
-app.use(routerSynth);
+const port = process.env.PORT || 3005;
 
 app.set("views", "views"); 
-
 app.set("view engine", "ejs"); 
 
-const port = process.env.PORT || 3005;
+app.use(express.urlencoded({ extended: false })); 
+app.use(express.json());
+app.use(morgan("dev")); 
+app.use(express.static("public")); 
+app.use(methodOverride('_method'));
+
+app.use(routerMain); 
+app.use(routerSynth);
 
 app.listen(port, () => console.log(`Server running in port ${port}...`));

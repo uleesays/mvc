@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Synth</title>
+</head>
+<body>
+    <h1>Modify a Synth in the DB</h1>
+
+     <form method="POST" action="/synth-edit?_method=PUT" class="formulario">
+
+        <div class="formFields">
+
+            <img src="<%= editSynth.img%>" alt=""> <br>
+            <label for="">Image address</label>
+            <input type="text" name="img" id="" value="<%= editSynth.img%>">
+
+        </div>
+
+        <div class="formFields">
+
+            <label for="">ID</label>
+            <input type="text" name="id" id="" readonly="true" value="<%= editSynth.id%>">
+
+        </div>
+
+        <div class="formFields">
+
+            <label for="">Type</label>
+            <input type="text" name="type" id="" value="<%= editSynth.type%>">
+
+        </div>
+
+        <div class="formFields">
+
+            <label for="">Brand</label>
+            <input type="text" name="brand" id="" value="<%= editSynth.brand%>">
+
+        </div>
+
+        <div class="formFields">
+
+            <label for="">Model</label>
+            <input type="text" name="model" id="" value="<%= editSynth.model%>">
+
+        </div>
+
+        <div class="formFields">
+
+            <label for="">Price</label>
+            <input type="text" name="price" id="" value="<%= editSynth.price%>">
+
+        </div>
+
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+
+     </form>
+    
+</body>
+</html>

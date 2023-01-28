@@ -83,11 +83,39 @@ const postSynth = (req, res) => {
 
 }
 
+const editSynth = (req,res) => {
+
+    const {id} = req.params;
+    const editSynth = synths.find( e => e.id == id);
+    res.render(path.join(__dirname, '../views/editSynth.ejs'), {editSynth})
+
+
+}
+
+const editConfirm = (req,res) => {
+
+    synths.forEach(e => {
+        if (e.id == req.body.id){
+            e.img = req.body.img;
+            e.type = req.body.type;
+            e.brand = req.body.brand;
+            e.model = req.body.model;
+            e.price = req.body.price;
+        }
+    });
+
+    res.redirect('/synths');
+
+}
+
+
 module.exports = {
     renderAllSynths,
     renderSynthId,
     /*  renderSynthModel, */
     search,
     formNewSynth,
-    postSynth
+    postSynth,
+    editSynth,
+    editConfirm
 }
