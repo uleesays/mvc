@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Synth</title>
+</head>
+<body>
+    <h1>Add a Synth to the DB</h1>
+
+     <form method="POST" action="/new-synth" class="formulario">
+
+        <div class="formFields">
+
+            <label for="">Type</label>
+            <input type="text" name="type" id="">
+
+        </div>
+
+        <div class="formFields">
+
+            <label for="">Brand</label>
+            <input type="text" name="brand" id="">
+
+        </div>
+
+        <div class="formFields">
+
+            <label for="">Model</label>
+            <input type="text" name="model" id="">
+
+        </div>
+
+        <div class="formFields">
+
+            <label for="">Price</label>
+            <input type="text" name="price" id="">
+
+        </div>
+
+        <div class="formFields">
+
+            <label for="">Image</label>
+            <input type="text" name="img" id="">
+
+        </div>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+
+        <!-- Los nombres de los campos son los mismos que en la DB y NUNCA le damos al usuario la posiblidad de crear su ID eso lo hago yo. -->
+
+
+     </form>
+    
+</body>
+</html>

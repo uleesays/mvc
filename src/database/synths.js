@@ -82,11 +82,26 @@ const synths = [
 
         brand: "Moog",
 
-        model: "Sub 37",
+        model: "Sub-37",
 
         price: 1899,
 
         img: 'https://m.media-amazon.com/images/I/81eSW+xQpsL._CR0,204,1224,1224_UX256.jpg'
+    },
+
+    {
+        id: 7,
+
+        type: "Monophonic Synth",
+
+        brand: "Moog",
+
+        model: "Mother-32",
+
+        price: 699,
+
+        img: 'https://styles.redditmedia.com/t5_3a9l7/styles/communityIcon_3eaeqzl4bo551.png'
+
     },
 
 

@@ -2,11 +2,11 @@ const synths = require('../database/synths');
 const path = require('path'); //agregado para EJS
 
 const renderAllSynths = (req, res) => {
-   /*  res.send(synths) */
-   res.render(path.join(__dirname,'../views/synths.ejs'), {'allSynths': synths}) //agregado para EJS
+    /*  res.send(synths) */
+    res.render(path.join(__dirname, '../views/synths.ejs'), { 'allSynths': synths }) //agregado para EJS
 
-   /* Esto de aca arriba, primer parametro le digo en donde encuentra synths.ejs, el segundo paramentro, que dato espera? le mando un objeto: clave / valor. La clave es la que estoy usando en synths.ejs, el valor es de donde saca la info. */
-}
+    /* Esto de aca arriba, primer parametro le digo en donde encuentra synths.ejs, el segundo paramentro, que dato espera? le mando un objeto: clave / valor. La clave es la que estoy usando en synths.ejs, el valor es de donde saca la info. */
+};
 
 const renderSynthId = (req, res) => {
 
@@ -16,14 +16,14 @@ const renderSynthId = (req, res) => {
 
     if (synth) {
         /* res.send(synth); */
-        res.render(path.join(__dirname,'../views/synthDetail.ejs'), {synth})
+        res.render(path.join(__dirname, '../views/synthDetail.ejs'), { synth })
     } else {
         res.send("Not found")
     }
 
-}
+};
 
-const renderSynthModel = (req, res) => {
+/* const renderSynthModel = (req, res) => {
 
     const { model } = req.params;
     const synth = synths.filter(elem => elem.model.includes(model));
@@ -34,10 +34,60 @@ const renderSynthModel = (req, res) => {
     }
 
 
+}; */
+
+const search = (req, res) => {
+    const { model } = req.query;
+
+    /* no importa como este almacenado, filtro lo que busca el usuario pasado a  mayuscula y el modelo en la base de datos tambien lo paso a mayuscula  */
+
+    const synth = synths.filter(e => e.model.toUpperCase().includes(model.toUpperCase()));
+
+    /* usando un ternario, digo que si el largo es distinto a 0, encontro algo, entonces reciclo la vista de details, y sino mando a 404 */
+
+    synth.length != 0 ? res.render(path.join(__dirname, '../views/synthDetail.ejs'), { synth }) : res.status(404);
+
+    /*  res.send(name) */
+};
+
+const formNewSynth = (req, res) => {
+
+    res.render(path.join(__dirname, '../views/formNewSynth.ejs'))
+
+}
+
+const postSynth = (req, res) => {
+
+    const {
+        type,
+        brand,
+        model,
+        price,
+        img
+    } = req.body;
+
+    const newId = synths[synths.length - 1].id + 1;
+
+    const obj = {
+        id: newId, /* OJO con nombrar solo newId, me va a generar los obj nuevos sin id, y con newId */
+        type,
+        brand,
+        model,
+        price,
+        img
+    };
+
+    synths.push(obj);
+
+    res.redirect('/synths');
+
 }
 
 module.exports = {
     renderAllSynths,
     renderSynthId,
-    renderSynthModel
+    /*  renderSynthModel, */
+    search,
+    formNewSynth,
+    postSynth
 }

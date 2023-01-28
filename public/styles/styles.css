@@ -14,7 +14,7 @@ ul {
 }
 
 .description {
-    color:rgb(61, 106, 75);
+    color:rgb(232, 160, 37);
     font-size: 20px;
 }
 
@@ -25,7 +25,7 @@ ul {
 
 .card {
     border-radius: 5px;
-    background-color: rgb(12, 8, 50);
+    background-color: rgb(63, 60, 88);
     width: 300px;
     height: 380px;
     margin: 120px auto;

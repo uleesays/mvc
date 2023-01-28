@@ -1,13 +1,15 @@
 const express = require('express');
 
-const {renderAllSynths, renderSynthId, renderSynthModel} = require('../controllers/synthControllers');
+const {renderAllSynths, renderSynthId, search, formNewSynth, postSynth} = require('../controllers/synthControllers');
 
 const routerSynth = express.Router();
 
 routerSynth.get('/synths', renderAllSynths);
 routerSynth.get('/synth/:id', renderSynthId);
-routerSynth.get('/synthmodel/:model', renderSynthModel)
+routerSynth.get('/search', search);
 
+routerSynth.get('/new-synth', formNewSynth); 
+routerSynth.post('/new-synth', postSynth);
 
 
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head> <!-- El head puede ser un partial. -->
     <link rel="stylesheet" href="/styles/styles.css">
     <meta charset="UTF-8">
@@ -7,25 +8,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail</title>
 </head>
-<body>
 
-    <%- include('partials/header.ejs') %>
+<body>
 
     <h2 class="subtitles">Information</h2>
 
-    <div class="card">
+    <!-- Para reciclar esta vista con la nueva ruta SEARCH hay que hacer un par de cambios. asi no rompe pero tampoco anda, por que aca estoy tomando los datos como si fuera un objeto, y yo deberia tomarlo como un array. hay que hacer in IF que pregunte si lo que esta viniendo es un array o un objeto.  -->
 
-        <img class="icons" src="<%= synth.img %>" alt="">
+    <%- include('partials/header.ejs') %>
 
-        <p class="description">
-            Model: <%= synth.model %>
-        </p>
+        <% if(Array.isArray(synth)) {%>
 
-        <p class="description">
-            Price: <%= synth.price %>
-        </p>
+            <!-- si ES array, mando el for -->
 
-    </div>
+            <% for (let i=0; i < synth.length; i++) { %>
+
+            <div class="card">
+
+                <img class="icons" src="<%= synth[i].img %>" alt="">
+
+                <p class="description">
+                    Model: <%= synth[i].model %>
+                </p>
+
+                <p class="description">
+                    Price: <%= synth[i].price %>
+                </p>
+
+            </div>
+
+
+
+             <%}%>
+
+         <%} else {%>
+
+            <div class="card">
+
+                <img class="icons" src="<%= synth.img %>" alt="">
+
+                <p class="description">
+                    Model: <%= synth.model %>
+                </p>
+
+                <p class="description">
+                    Price: <%= synth.price %>
+                </p>
+
+            </div>
+
+        <% } %>
+
+                        
+
+                      
 
 </body>
+
 </html>
