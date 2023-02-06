@@ -1,6 +1,8 @@
 const synths = require('../database/synths');
 const path = require('path'); //agregado para EJS
 
+const { validationResult } = require('express-validator');
+
 const renderAllSynths = (req, res) => {
     /*  res.send(synths) */
     res.render(path.join(__dirname, '../views/synths.ejs'), { 'allSynths': synths }) //agregado para EJS
@@ -58,13 +60,36 @@ const formNewSynth = (req, res) => {
 
 const postSynth = (req, res) => {
 
+   
+const resultValidation = validationResult(req);
+   
+    
+    if (resultValidation.errors.length > 0) {
+        return  res.render(path.join(__dirname, '../views/formNewSynth.ejs'), { 
+        errors: resultValidation.mapped(),
+        oldData: req.body
+    })
+
+    }
+
     const {
         type,
         brand,
         model,
         price,
-        img
+    
     } = req.body;
+
+    /* Multer para chequear q llegue imagen y asignarla*/
+
+    const img = req.file ? req.file.filename : '';
+
+    let newImage;
+
+    if (img.length > 0) {
+
+        newImage = `images/products/${img}`
+    }
 
     const newId = synths[synths.length - 1].id + 1;
 
@@ -74,7 +99,7 @@ const postSynth = (req, res) => {
         brand,
         model,
         price,
-        img
+        img: newImage
     };
 
     synths.push(obj);
@@ -94,18 +119,40 @@ const editSynth = (req,res) => {
 
 const editConfirm = (req,res) => {
 
+    const imagen = req.file ? req.file.filename : '';
+    let newImage;
+
     synths.forEach(e => {
         if (e.id == req.body.id){
-            e.img = req.body.img;
+            
             e.type = req.body.type;
             e.brand = req.body.brand;
             e.model = req.body.model;
             e.price = req.body.price;
+            if (imagen.length > 0) {
+                newImage = `images/products/${imagen}`
+                e.img = newImage;
+            }
         }
     });
 
     res.redirect('/synths');
 
+}
+
+const deleteSynth = (req,res) => {
+    const idEliminar = req.params.id;
+    let exists = false;
+    for (var i = 0; i < synths.length; i++) {
+        if (synths[i].id == idEliminar) {
+            synths.splice(i,1);
+            exists= true;
+            break;
+        }
+    }
+    if (!exists) res.send("NO DELETE")
+
+    res.redirect('/synths')
 }
 
 
@@ -117,5 +164,6 @@ module.exports = {
     formNewSynth,
     postSynth,
     editSynth,
-    editConfirm
+    editConfirm,
+    deleteSynth
 }

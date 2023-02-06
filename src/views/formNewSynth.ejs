@@ -4,55 +4,107 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/styles.css">
     <title>New Synth</title>
 </head>
 <body>
     <h1>Add a Synth to the DB</h1>
 
-     <form method="POST" action="/new-synth" class="formulario">
+    <div class="form-container">
+
+
+
+     <form method="POST" action="/new-synth" class="formulario" enctype="multipart/form-data">
 
         <div class="formFields">
 
-            <label for="">Type</label>
-            <input type="text" name="type" id="">
+            <label for="" class="form-label">Type</label>
+            <input type="text"
+             name="type" 
+             id="" 
+             class="form-input  <%= locals.errors && errors.type ? 'is-invalid' : null %>"
+             value="<%= locals.oldData ? oldData.type : null %>">
+             
+            <% if (locals.errors && errors.type) {%>
+                <div class="text_errors">
+                   <%= errors.type.msg %>
+                </div>
+
+            <% } %>
 
         </div>
 
         <div class="formFields">
 
-            <label for="">Brand</label>
-            <input type="text" name="brand" id="">
+            <label for="" class="form-label">Brand</label>
+            <input type="text" 
+            name="brand" id=""  
+            class="form-input  <%= locals.errors && errors.brand ? 'is-invalid' : null %>"
+            value="<%= locals.oldData ? oldData.brand : null %>">
+            <% if (locals.errors && errors.brand) {%>
+                <div class="text_errors">
+                   <%= errors.brand.msg %>
+                </div>
+
+            <% } %>
+        </div>
+
+        <div class="formFields">
+
+            <label for="" class="form-label">Model</label>
+            <input type="text" 
+            name="model" id=""
+            class="form-input  <%= locals.errors && errors.model ? 'is-invalid' : null %>"
+            value="<%= locals.oldData ? oldData.model : null %>">
+
+            <% if (locals.errors && errors.model) {%>
+                <div class="text_errors">
+                   <%= errors.model.msg %>
+                </div>
+
+            <% } %>
 
         </div>
 
         <div class="formFields">
 
-            <label for="">Model</label>
-            <input type="text" name="model" id="">
+            <label for="" class="form-label">Price</label>
+            <input type="text" 
+            name="price" id=""  
+            class="form-input  <%= locals.errors && errors.price ? 'is-invalid' : null %> "
+            value="<%= locals.oldData ? oldData.price : null %>">
+
+            <% if (locals.errors && errors.price) {%>
+                <div class="text_errors">
+                   <%= errors.price.msg %>
+                </div>
+
+            <% } %>
 
         </div>
 
         <div class="formFields">
 
-            <label for="">Price</label>
-            <input type="text" name="price" id="">
+            <label for="" class="form-label">Image</label>
+            <input type="file" name="img" id=""  class="form-input">
+            <% if (locals.errors && errors.img) {%>
+                <div class="text_errors">
+                   <%= errors.img.msg %>
+                </div>
+
+            <% } %>
 
         </div>
 
-        <div class="formFields">
-
-            <label for="">Image</label>
-            <input type="text" name="img" id="">
-
-        </div>
-
-        <button type="submit">Submit</button>
-        <button type="reset">Reset</button>
+        <button class="form-buttons" type="submit">Submit</button>
+        <button class="form-buttons" type="reset">Reset</button>
 
         <!-- Los nombres de los campos son los mismos que en la DB y NUNCA le damos al usuario la posiblidad de crear su ID eso lo hago yo. -->
 
 
      </form>
+
+    </div>
     
 </body>
 </html>

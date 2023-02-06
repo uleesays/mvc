@@ -9,13 +9,13 @@
 <body>
     <h1>Modify a Synth in the DB</h1>
 
-     <form method="POST" action="/synth-edit?_method=PUT" class="formulario">
+     <form method="POST" action="/synth-edit?_method=PUT" class="formulario" enctype="multipart/form-data">
 
         <div class="formFields">
 
             <img src="<%= editSynth.img%>" alt=""> <br>
             <label for="">Image address</label>
-            <input type="text" name="img" id="" value="<%= editSynth.img%>">
+            <input type="file" name="img" id="" value="<%= editSynth.img%>">
 
         </div>
 
@@ -57,8 +57,13 @@
 
         <button type="submit">Submit</button>
         <button type="reset">Reset</button>
+      
 
      </form>
+
+     <form action="/synth-edit/delete/<%= editSynth.id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button>
+    </form>
     
 </body>
 </html>
